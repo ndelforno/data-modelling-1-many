@@ -1,0 +1,24 @@
+SELECT * FROM authors WHERE name = 'Kara Melton';
+SELECT * FROM articles WHERE author_id = 8;
+SELECT * FROM provinces WHERE name = 'Ontario'
+SELECT * FROM cities WHERE province_id = 14;
+SELECT author_id FROM articles WHERE title = 'Coding Bootcamps and Emotional Labor';
+SELECT * FROM authors WHERE id = 4;
+SELECT COUNT(id) FROM provinces WHERE country_id = (SELECT id FROM countries WHERE name = 'Canada');
+SELECT COUNT(id) FROM persons WHERE residence_id = (SELECT id FROM residences WHERE address = '4740 McDermott Street');
+SELECT province_id FROM cities WHERE name = (SELECT name FROM cities WHERE id = (SELECT city_id FROM residences WHERE address = '4740 McDermott Street'));
+
+
+
+SELECT name FROM countries WHERE id =
+(SELECT country_id FROM provinces WHERE id =
+(SELECT province_id FROM cities WHERE id =
+(SELECT city_id FROM residences WHERE id =
+(SELECT residence_id FROM persons WHERE name = 'Destini Davis'))));
+
+
+
+
+
+
+SELECT COUNT(id) FROM articles WHERE author_id = (SELECT author_id FROM authors WHERE name = 'Aditya Mukerjee');
